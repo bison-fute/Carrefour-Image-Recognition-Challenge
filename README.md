@@ -7,17 +7,10 @@ File metadata-processing.py :
 
 ## Next things to do :
 
-STRATEGY 1 :
-   * define a level of categorization to perform a simple classification task
-   * build a MetadataInspection to search which level is the more interesting 
+STRATEGY 1 : define a level of categorization to perform a simple classification task, build a MetadataInspection to search which level is the more interesting 
 
-STRATEGY 2 :
-   * build a moodle which use several categorization level between 1 and 4
-   which one ? how ? 
+STRATEGY 2 : build a moodle which use several categorization level between 1 and 4, which one ? how ? 
 
-STRATEGY 3 :
-   * take profit of the desc field in the meta data to build an NLP model paired
-   with a character recognition API (a priori name of product appears in desc)
+STRATEGY 3 : take profit of the desc field in the meta data to build an NLP model paired with a character recognition API (a priori name of product appears in desc)
 
-STRATEGY 4 :
-   * try to take profit data which is not in the primary link branch in a model 
+STRATEGY 4 : try to take profit data which is not in the primary link branch in a model 
