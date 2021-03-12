@@ -19,7 +19,7 @@ STRATEGY 3 : take profit of the desc field in the meta data to build an NLP mode
 
 STRATEGY 4 : try to take profit data which is not in the primary link branch in a model 
 
-## Evalutation of the project*
+## Evalutation of the project
 
  Will be done in two ways: 
 - a written report: each group must send a small report describing the machine learning problem, the approach taken (data pre-processing, algorithms used, etc...), and the results obtained. The deadline for submitting this report is Friday, March 26. 
