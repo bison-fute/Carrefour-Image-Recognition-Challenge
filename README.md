@@ -18,3 +18,9 @@ STRATEGY 2 : build a moodle which use several categorization level between 1 and
 STRATEGY 3 : take profit of the desc field in the meta data to build an NLP model paired with a character recognition API (a priori name of product appears in desc)
 
 STRATEGY 4 : try to take profit data which is not in the primary link branch in a model 
+
+## Evalutation of the project*
+
+ Will be done in two ways: 
+- a written report: each group must send a small report describing the machine learning problem, the approach taken (data pre-processing, algorithms used, etc...), and the results obtained. The deadline for submitting this report is Friday, March 26. 
+- By a short oral presentation of the work done (15 minutes) for each group in front of Data Scientists of the Carrefour DataLab, which we have planned to schedule on Thursday, April 1st from 5:00 pm to 6:30 pm approximately. 
