@@ -1,13 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import os
+
 import torch
+from sklearn.metrics import accuracy_score
 from torchvision import models,transforms,datasets
 from torchvision.utils import make_grid
-import time
-import sys
-import glob
+
 import pickle as pk
+from torch.nn import Linear, Sequential, CrossEntropyLoss
+import torch.optim as optim
 
 from images_processing import*
 
@@ -23,6 +24,7 @@ data_path = "data/"
 
 # Note: commencer par exécuter metadata_main
 barcode_to_cat = pk.load(open('barcode_to_cat', 'rb'))
+cat_to_name = pk.load(open('cat_to_name', 'rb'))
 batch_size = 64
 
 # Voir si on a besoin de normaliser (ça dépend du model utilisé)
@@ -49,19 +51,84 @@ train_loader = torch.utils.data.DataLoader(
     batch_size,
     num_workers=0
 )
-tets_loader = torch.utils.data.DataLoader(
+test_loader = torch.utils.data.DataLoader(
     test_dsets,
     batch_size,
     num_workers=0
 )
 
-# iterate over data
-for x, y in train_loader:
-    break
+## Exemple d'implémentation
+epochs = 1
+lr = 0.0005
+n_outputs = len(cat_to_name)            # Nombre de catégories
+# loading the pretrained model
+model = models.vgg16_bn(pretrained=True)
+# Freeze model weights
+for param in model.parameters():
+    param.requires_grad = False
 
-# visualisation des premières images, avec leurs catégories:
-imshow(make_grid(x[:32]))
-print(y[:32])
+# Add on classifier
+model.classifier[6] = Sequential(
+    Linear(4096, n_outputs)
+)
+print("Model Summary:")
+print(model.classifier)
 
+for param in model.classifier[6].parameters():
+    param.requires_grad = True
+
+# specify loss function (categorical cross-entropy)
+criterion = CrossEntropyLoss()
+
+# specify optimizer (stochastic gradient descent) and learning rate
+optimizer = optim.Adam(model.classifier[6].parameters(), lr=lr)
+
+# training step
+for epoch in range(epochs):
+
+    # keep track of training and validation loss
+    train_loss = 0.0
+
+    training_loss = []
+    for x, y in train_loader:
+        optimizer.zero_grad()
+        outputs = model(x)
+        loss = criterion(outputs, y)
+
+        training_loss.append(loss.item())
+        loss.backward()
+        optimizer.step()
+
+    training_loss = np.average(training_loss)
+    print('epoch:', epoch, 'training loss: %.3f' %training_loss)
+
+##
+# eval step
+prediction_val = []
+target_val = []
+for x, y in test_loader:
+
+    with torch.no_grad():
+        output = model(x)
+
+    softmax = torch.exp(output).cpu()
+    prob = list(softmax.numpy())
+    predictions = np.argmax(prob, axis=1)
+    prediction_val.append(predictions)
+    target_val.append(y)
+
+# validation accuracy
+accuracy_val = []
+for i in range(len(prediction_val)):
+    accuracy_val.append(accuracy_score(target_val[i], prediction_val[i]))
+
+print('validation accuracy: \t', np.average(accuracy_val))
+
+## visualisation des premières images, avec leurs catégories et prédictions respectives:
+
+imshow(make_grid(x[:8]))
+for i in range(16):
+    print("Nom de la catégorie:", cat_to_name[y[i].item()])
+    print("Prédiction:", cat_to_name[predictions[i].item()])
 ##
 
