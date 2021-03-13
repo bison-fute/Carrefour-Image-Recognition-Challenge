@@ -92,11 +92,7 @@ class ExploratoryDataAnalysis():
         for elt in self.metadata_list_copy:
             elt_barcode = int(elt['barcode'])
             barcode_lastcat[elt_barcode] = int(list(elt['arbonodes'].values())[-2])
-
         self.barcode_to_cat = barcode_lastcat
-        print("ma len 1 :", len(self.barcode_to_cat))
-        t = np.unique(np.array(list(self.barcode_to_cat.keys())))
-        print("nb d'el uniques:", len(t))
         return None
 
     def init_cat_to_name(self):
@@ -165,7 +161,7 @@ class ExploratoryDataAnalysis():
         change_has_been_made = False
         print("Levels merging:", level)
         for i, (cat, size) in enumerate(self.cat_to_quant.items()):
-            print("\rPourcentage du level traitée: %d %%" % (100 * i / len(self.cat_to_quant)), end='')
+            print("\rPourcentage du level traité: %d %%" % (100 * i / len(self.cat_to_quant)), end='')
             if size < min_cat_size:  # if cat is too small
                 self.replace_cat(cat, level)  # update self.barcode_lastcat_dict
                 change_has_been_made = True

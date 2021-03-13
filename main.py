@@ -12,6 +12,10 @@ import torch.optim as optim
 
 from images_processing import*
 
+from PIL import Image ; Image.MAX_IMAGE_PIXELS = 1000000000
+from PIL import ImageFile ; ImageFile.LOAD_TRUNCATED_IMAGES = True
+
+
 ## Set up de PyTorch
 print("Versions:")
 print("torch version:", torch.__version__)
@@ -90,7 +94,8 @@ for epoch in range(epochs):
     train_loss = 0.0
 
     training_loss = []
-    for x, y in train_loader:
+    for i, x, y in enumerate(train_loader):
+        print('batch', i)
         optimizer.zero_grad()
         outputs = model(x)
         loss = criterion(outputs, y)
