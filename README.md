@@ -3,7 +3,7 @@
 ## Next things to do :
 
 **Save the output of the pretrained architecture** once *in order to save time during the learning process*. <br/>
-Add a function to **get learning curves** (train and validation loss) *to be able to discuss about the learning process afterwards*. <br/>
+Add a function to **get learning curves** (~~train and~~ validation loss) *to be able to discuss about the learning process afterwards*. <br/>
 **Train several architectures** : https://pytorch.org/vision/stable/models.html (VGG16, ResNet50, InceptionV3, DenseNet161). <br/>
 Try **different *head* part architectures** : add convolution layers ? Several fully connected ?<br/>
 Try **several set of parameters for data preprocessing** of categories : should categories be merge up to 50, 100, 500, 1000 elements ? How should we determine this ?
