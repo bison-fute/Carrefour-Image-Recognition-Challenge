@@ -8,6 +8,7 @@ Add a function to **get learning curves** (train and validation loss) *to be abl
 Try **different *head* part architectures** : add convolution layers ? Several fully connected ?<br/>
 Try **several set of parameters for data preprocessing** of categories : should categories be merge up to 50, 100, 500, 1000 elements ? How should we determine this ?
 
+------
 
 **Content :**  <br/>
 File metadata-processing.py : <br/>
