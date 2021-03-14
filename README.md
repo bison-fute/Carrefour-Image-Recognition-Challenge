@@ -10,6 +10,10 @@ Try **several set of parameters for data preprocessing** of categories : should 
 
 ------
 
+**Tips :**  <br/>
+To speed up the learning process, put num_worker=4 if you have 4 cores on your machine, turn it to 0 if it does not work with your material.  <br/>
+Depending on your linux or windows distro, string splitting with "\\" might or might not work, if it does not work, replace it with "/" and vice-versa.  <br/>
+
 **Content :**  <br/>
 File metadata-processing.py : <br/>
 a class MetadataPreprocessing : set metadata into a class, convert json to a list of dict, show what describes the key 'arbonodes', focus on the branch of is_primary_link of all products. Modify the json file removing is_primary_link = False fields. <br/>
