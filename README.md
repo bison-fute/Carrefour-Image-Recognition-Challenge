@@ -1,5 +1,18 @@
 # Carrefour-Image-Recognition-Challenge
 
+## Next things to do :
+
+**Save the output of the pretrained architecture** once *in order to save time during the learning process*.
+
+Add a function to **get learning curves** (train and validation loss) *to be able to discuss about the learning process afterwards*.
+
+**Train several architectures** : https://pytorch.org/vision/stable/models.html (VGG16, ResNet50, InceptionV3, DenseNet161).
+
+Try **different *head* part architectures** : add convolution layers ? Several fully connected ?
+
+Try **several set of parameters for data preprocessing** of categories : should categories be merge up to 50, 100, 500, 1000 elements ? How should we determine this ?
+
+
 ## Content : 
 
 File metadata-processing.py : 
@@ -9,18 +22,9 @@ File sujet.pdf : les slides données au début du challenge.
 
 File sujet_precision_conf.pdf : les notes de la conférence, deuxième prise de vue.
 
-## Next things to do :
 
-STRATEGY 1 : define a level of categorization to perform a simple classification task, build a MetadataInspection to search which level is the more interesting 
+**About evalutation of the project...**
 
-STRATEGY 2 : build a moodle which use several categorization level between 1 and 4, which one ? how ? 
+A *written report*: send a small report describing the problem, the approach taken (data pre-processing, algorithms used), and the results obtained. Deadline: Friday, March 26. 
 
-STRATEGY 3 : take profit of the desc field in the meta data to build an NLP model paired with a character recognition API (a priori name of product appears in desc)
-
-STRATEGY 4 : try to take profit data which is not in the primary link branch in a model 
-
-## Evalutation of the project
-
- Will be done in two ways: 
-- a written report: each group must send a small report describing the machine learning problem, the approach taken (data pre-processing, algorithms used, etc...), and the results obtained. The deadline for submitting this report is Friday, March 26. 
-- By a short oral presentation of the work done (15 minutes) for each group in front of Data Scientists of the Carrefour DataLab, which we have planned to schedule on Thursday, April 1st from 5:00 pm to 6:30 pm approximately. 
+A *short oral presentation* of the work (15 minutes) with Data Scientists of Carrefour. Scheduled: Thursday, April 1st, 5:00 pm to 6:30 pm approximately. 
