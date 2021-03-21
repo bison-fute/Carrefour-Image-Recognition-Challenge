@@ -1,4 +1,4 @@
-# Carrefour-Image-Recognition-Challenge
+# Carrefour Image Recognition Challenge
 
 **Tips :**  <br/>
 To speed up the learning process, put num_worker=4 if you have 4 cores on your machine, turn it to 0 if it does not work with your material.  <br/>
